@@ -153,16 +153,26 @@ public class host extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String uname = unamefield.getText();
         String upass = passfield.getText();
+        
+        int i = uname.indexOf("@");
+        
+        int l = uname.indexOf(".",i);
+        
+        String domain = uname.substring(i+1,l);
+        System.out.println("User Mail: " + uname);
+        System.out.println("User Domain: " + domain);
+        
+        
         //temporary login credentials 
-        if(uname.equals("admin") && upass.equals("admin")){
+        if(domain.equals("admin") && upass.equals("admin")){
             new admin().setVisible(true);
             
         }
-        else if(uname.equals("manager") && upass.equals("manager")){
+        else if(domain.equals("manager") && upass.equals("manager")){
             new manager().setVisible(true);
             
         }
-        else if(uname.equals("operator") && upass.equals("operator")){
+        else if(domain.equals("operator") && upass.equals("operator")){
             new operator().setVisible(true);
             
         }

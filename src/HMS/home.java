@@ -32,9 +32,10 @@ public class home extends javax.swing.JFrame {
     /**
      * Creates new form home
      */
-    public home() {
+    public home(){
         initComponents();
         this.setLocationRelativeTo(null); //to center the windows
+        dbconnection.getConnection();               
     }
 
     /**
