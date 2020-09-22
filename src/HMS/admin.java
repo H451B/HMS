@@ -125,7 +125,8 @@ public class admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void empmanagebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empmanagebtnActionPerformed
-        // TODO add your handling code here:
+        new empmanagement().setVisible(true);
+        this.setVisible(false);
         
     }//GEN-LAST:event_empmanagebtnActionPerformed
 
