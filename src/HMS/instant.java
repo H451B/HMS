@@ -259,7 +259,8 @@ public class instant extends javax.swing.JFrame {
     }//GEN-LAST:event_hostbtnActionPerformed
 
     private void bookingsubmitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingsubmitbtnActionPerformed
-        // TODO add your handling code here:
+        new dashboard().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_bookingsubmitbtnActionPerformed
 
     private void bookingaddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingaddressActionPerformed

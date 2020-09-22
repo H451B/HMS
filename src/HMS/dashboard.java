@@ -70,6 +70,11 @@ public class dashboard extends javax.swing.JFrame {
         jScrollPane1.setViewportView(dashrecordtable);
 
         checkinbtn.setText("Check In");
+        checkinbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkinbtnActionPerformed(evt);
+            }
+        });
 
         toprebookbtn.setText("Booking Check");
         toprebookbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -159,6 +164,11 @@ String szDate = oDateFormat.format(oDate);
         System.out.println(date);*/
         
     }//GEN-LAST:event_currentrecorddateActionPerformed
+
+    private void checkinbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkinbtnActionPerformed
+        new instant().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_checkinbtnActionPerformed
 
     /**
      * @param args the command line arguments
