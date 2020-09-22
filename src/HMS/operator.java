@@ -5,10 +5,6 @@
  */
 package HMS;
 
-import java.awt.Image;
-import java.awt.Toolkit;
-import javax.swing.ImageIcon;
-
 /**
  *
  * @author hp
@@ -22,12 +18,6 @@ public class operator extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    public void scaleicon(){
-        Image img = Toolkit.getDefaultToolkit().getImage(service.class.getResource("/resources/back.png"));
-        Image imgscale =img.getScaledInstance(tohomebtn.getWidth(),tohomebtn.getHeight(),Image.SCALE_SMOOTH);
-	ImageIcon scaledIcon=new ImageIcon(imgscale);
-        tohomebtn.setIcon(scaledIcon);
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,35 +29,40 @@ public class operator extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        checkoutbtn = new javax.swing.JButton();
+        dashboardbtn = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         operatorimg = new javax.swing.JLabel();
+        tohostbtn = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         opnamelabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         opIDlabel = new javax.swing.JLabel();
-        tohomebtn = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Operator");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("CheckIn/Out");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        checkoutbtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        checkoutbtn.setText("Check Out");
+        checkoutbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                checkoutbtnActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("DashBoard");
+        dashboardbtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        dashboardbtn.setText("DashBoard");
+        dashboardbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dashboardbtnActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton3.setText("Profiles");
+        jButton3.setText("Profile");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -75,6 +70,14 @@ public class operator extends javax.swing.JFrame {
         });
 
         operatorimg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        tohostbtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tohostbtn.setText("<");
+        tohostbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tohostbtnActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setBackground(new java.awt.Color(160, 160, 160));
         jSeparator1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -91,12 +94,6 @@ public class operator extends javax.swing.JFrame {
 
         opIDlabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        tohomebtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tohomebtnMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,9 +103,9 @@ public class operator extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(85, 85, 85)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkoutbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dashboardbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(100, 100, 100)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(72, 72, 72)
@@ -124,18 +121,19 @@ public class operator extends javax.swing.JFrame {
                                 .addComponent(opIDlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(tohomebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(229, 229, 229)
+                        .addComponent(tohostbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(189, 189, 189)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tohomebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tohostbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
@@ -144,9 +142,9 @@ public class operator extends javax.swing.JFrame {
                         .addGap(55, 55, 55)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dashboardbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(checkoutbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(operatorimg, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,9 +162,10 @@ public class operator extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void checkoutbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutbtnActionPerformed
+        new checkout().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_checkoutbtnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -174,11 +173,15 @@ public class operator extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void tohomebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tohomebtnMouseClicked
-        // TODO add your handling code here:
+    private void tohostbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tohostbtnActionPerformed
         new host().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_tohomebtnMouseClicked
+    }//GEN-LAST:event_tohostbtnActionPerformed
+
+    private void dashboardbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardbtnActionPerformed
+        new dashboard().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_dashboardbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,8 +219,8 @@ public class operator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton checkoutbtn;
+    private javax.swing.JButton dashboardbtn;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -226,6 +229,6 @@ public class operator extends javax.swing.JFrame {
     private javax.swing.JLabel opIDlabel;
     private javax.swing.JLabel operatorimg;
     private javax.swing.JLabel opnamelabel;
-    private javax.swing.JLabel tohomebtn;
+    private javax.swing.JButton tohostbtn;
     // End of variables declaration//GEN-END:variables
 }

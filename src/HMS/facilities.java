@@ -8,7 +8,6 @@ package HMS;
  import java.awt.Graphics;  
  import java.awt.Image;  
  import java.awt.Toolkit;  
-import javax.swing.ImageIcon;
  import javax.swing.JPanel;
 /**
  *
@@ -22,13 +21,6 @@ public class facilities extends javax.swing.JFrame {
     public facilities() {
         initComponents();
         this.setLocationRelativeTo(null);
-        scaleicon();
-    }
-    public void scaleicon(){
-        Image img = Toolkit.getDefaultToolkit().getImage(service.class.getResource("/resources/back.png"));
-        Image imgscale =img.getScaledInstance(tohomebtn.getWidth(),tohomebtn.getHeight(),Image.SCALE_SMOOTH);
-	ImageIcon scaledIcon=new ImageIcon(imgscale);
-        tohomebtn.setIcon(scaledIcon);
     }
 
     /**
@@ -63,7 +55,6 @@ public class facilities extends javax.swing.JFrame {
             }  
         }; ;
         jLabel9 = new javax.swing.JLabel();
-        tohomebtn = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,12 +93,12 @@ public class facilities extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText(".Food & Drinks");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(290, 110, 150, 30);
+        jLabel7.setBounds(290, 120, 150, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText(".No Smoking");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(20, 110, 90, 30);
+        jLabel8.setBounds(20, 120, 90, 30);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -128,15 +119,7 @@ public class facilities extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText(". No Pets are allowed");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(130, 110, 150, 30);
-
-        tohomebtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tohomebtnMouseClicked(evt);
-            }
-        });
-        jPanel1.add(tohomebtn);
-        tohomebtn.setBounds(20, 10, 40, 30);
+        jLabel9.setBounds(130, 120, 150, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,12 +134,6 @@ public class facilities extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tohomebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tohomebtnMouseClicked
-        // TODO add your handling code here:
-        new service().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_tohomebtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -204,6 +181,5 @@ public class facilities extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel tohomebtn;
     // End of variables declaration//GEN-END:variables
 }

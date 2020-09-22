@@ -8,7 +8,6 @@ package HMS;
 import java.awt.Graphics;  
 import java.awt.Image;  
 import java.awt.Toolkit;  
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;  
 /**
@@ -23,13 +22,6 @@ public class service extends javax.swing.JFrame {
     public service() {
         initComponents();
         this.setLocationRelativeTo(null);
-        scaleicon();
-    }
-    public void scaleicon(){
-        Image img = Toolkit.getDefaultToolkit().getImage(service.class.getResource("/resources/back.png"));
-        Image imgscale =img.getScaledInstance(tohomebtn.getWidth(),tohomebtn.getHeight(),Image.SCALE_SMOOTH);
-	ImageIcon scaledIcon=new ImageIcon(imgscale);
-        tohomebtn.setIcon(scaledIcon);
     }
 
     /**
@@ -48,7 +40,7 @@ public class service extends javax.swing.JFrame {
         serviceLabel = new javax.swing.JLabel();
         ravLavel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        tohomebtn = new javax.swing.JLabel();
+        tohomebtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,7 +80,7 @@ public class service extends javax.swing.JFrame {
         serviceLabel.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
         serviceLabel.setText("SERVICES");
         jPanel1.add(serviceLabel);
-        serviceLabel.setBounds(430, 0, 120, 40);
+        serviceLabel.setBounds(430, 0, 120, 60);
 
         ravLavel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ravLavel.setText("Room Availibility Info");
@@ -109,13 +101,15 @@ public class service extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(460, 170, 440, 340);
 
-        tohomebtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tohomebtnMouseClicked(evt);
+        tohomebtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tohomebtn.setText("<");
+        tohomebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tohomebtnActionPerformed(evt);
             }
         });
         jPanel1.add(tohomebtn);
-        tohomebtn.setBounds(20, 10, 40, 30);
+        tohomebtn.setBounds(10, 10, 80, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -152,11 +146,10 @@ public class service extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_bookbtnActionPerformed
 
-    private void tohomebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tohomebtnMouseClicked
-        // TODO add your handling code here:
+    private void tohomebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tohomebtnActionPerformed
         new home().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_tohomebtnMouseClicked
+    }//GEN-LAST:event_tohomebtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,6 +194,6 @@ public class service extends javax.swing.JFrame {
     private javax.swing.JLabel ravLavel;
     private javax.swing.JButton roombtn;
     private javax.swing.JLabel serviceLabel;
-    private javax.swing.JLabel tohomebtn;
+    private javax.swing.JButton tohomebtn;
     // End of variables declaration//GEN-END:variables
 }

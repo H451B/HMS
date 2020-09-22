@@ -5,10 +5,6 @@
  */
 package HMS;
 
-import java.awt.Image;
-import java.awt.Toolkit;
-import javax.swing.ImageIcon;
-
 /**
  *
  * @author hp
@@ -21,13 +17,6 @@ public class room extends javax.swing.JFrame {
     public room() {
         initComponents();
         this.setLocationRelativeTo(null);
-        scaleicon();
-    }
-    public void scaleicon(){
-        Image img = Toolkit.getDefaultToolkit().getImage(service.class.getResource("/resources/back.png"));
-        Image imgscale =img.getScaledInstance(tohomebtn.getWidth(),tohomebtn.getHeight(),Image.SCALE_SMOOTH);
-	ImageIcon scaledIcon=new ImageIcon(imgscale);
-        tohomebtn.setIcon(scaledIcon);
     }
 
     /**
@@ -39,41 +28,21 @@ public class room extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tohomebtn = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        tohomebtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tohomebtnMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tohomebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(856, Short.MAX_VALUE))
+            .addGap(0, 906, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tohomebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(485, Short.MAX_VALUE))
+            .addGap(0, 526, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tohomebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tohomebtnMouseClicked
-        // TODO add your handling code here:
-        new service().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_tohomebtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -111,6 +80,5 @@ public class room extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel tohomebtn;
     // End of variables declaration//GEN-END:variables
 }

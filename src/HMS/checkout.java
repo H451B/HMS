@@ -13,12 +13,12 @@ import java.util.Date;
  *
  * @author Marshmalow
  */
-public class dashboard extends javax.swing.JFrame {
+public class checkout extends javax.swing.JFrame {
 
     /**
      * Creates new form dashboard
      */
-    public dashboard() {
+    public checkout() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -34,12 +34,12 @@ public class dashboard extends javax.swing.JFrame {
 
         tooperatorbtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        dashrecordtable = new javax.swing.JTable();
-        checkinbtn = new javax.swing.JButton();
-        toprebookbtn = new javax.swing.JButton();
+        outrecordtable = new javax.swing.JTable();
+        checkoutbtn = new javax.swing.JButton();
+        outextendbtn = new javax.swing.JButton();
         refreshbtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        dashdate = new org.jdesktop.swingx.JXDatePicker();
+        outdatecheck = new org.jdesktop.swingx.JXDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,7 +51,7 @@ public class dashboard extends javax.swing.JFrame {
             }
         });
 
-        dashrecordtable.setModel(new javax.swing.table.DefaultTableModel(
+        outrecordtable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -67,21 +67,26 @@ public class dashboard extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(dashrecordtable);
+        jScrollPane1.setViewportView(outrecordtable);
 
-        checkinbtn.setText("Check In");
-
-        toprebookbtn.setText("Booking Check");
-        toprebookbtn.addActionListener(new java.awt.event.ActionListener() {
+        checkoutbtn.setText("Check Out");
+        checkoutbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                toprebookbtnActionPerformed(evt);
+                checkoutbtnActionPerformed(evt);
+            }
+        });
+
+        outextendbtn.setText("Extend ");
+        outextendbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outextendbtnActionPerformed(evt);
             }
         });
 
         refreshbtn.setText("Refresh");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setText("Dashboard");
+        jLabel3.setText("Check Out");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,18 +97,18 @@ public class dashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(tooperatorbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(235, 235, 235)
-                        .addComponent(jLabel3)
+                        .addGap(245, 245, 245)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(checkinbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(toprebookbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkoutbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(outextendbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(refreshbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dashdate, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27))))
+                            .addComponent(outdatecheck, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,16 +117,16 @@ public class dashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tooperatorbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(dashdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
+                        .addComponent(outdatecheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
                         .addComponent(refreshbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(checkinbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(checkoutbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
-                        .addComponent(toprebookbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(outextendbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,11 +141,10 @@ public class dashboard extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_tooperatorbtnActionPerformed
 
-    private void toprebookbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toprebookbtnActionPerformed
+    private void outextendbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outextendbtnActionPerformed
         // TODO add your handling code here:
-        new prebook().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_toprebookbtnActionPerformed
+       
+    }//GEN-LAST:event_outextendbtnActionPerformed
 
     private void currentrecorddatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_currentrecorddatePropertyChange
        
@@ -153,12 +157,16 @@ String szDate = oDateFormat.format(oDate);
  */
     private void currentrecorddateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentrecorddateActionPerformed
         //coverting date to simpleformat for database from datechooser
-       /* Date val = currentrecorddate.getDate();
+        /*Date val = currentrecorddate.getDate();
         DateFormat convrt = new SimpleDateFormat("yyyy-MM-dd");
         String date = convrt.format(val);
         System.out.println(date);*/
         
     }//GEN-LAST:event_currentrecorddateActionPerformed
+
+    private void checkoutbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkoutbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,33 +185,34 @@ String szDate = oDateFormat.format(oDate);
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(checkout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(checkout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(checkout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(checkout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
         
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new dashboard().setVisible(true);
+                new checkout().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton checkinbtn;
-    private org.jdesktop.swingx.JXDatePicker dashdate;
-    private javax.swing.JTable dashrecordtable;
+    private javax.swing.JButton checkoutbtn;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private org.jdesktop.swingx.JXDatePicker outdatecheck;
+    private javax.swing.JButton outextendbtn;
+    private javax.swing.JTable outrecordtable;
     private javax.swing.JButton refreshbtn;
     private javax.swing.JButton tooperatorbtn;
-    private javax.swing.JButton toprebookbtn;
     // End of variables declaration//GEN-END:variables
 }

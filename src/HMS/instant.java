@@ -9,12 +9,12 @@ package HMS;
  *
  * @author hp
  */
-public class booking extends javax.swing.JFrame {
+public class instant extends javax.swing.JFrame {
 
     /**
      * Creates new form booking
      */
-    public booking() {
+    public instant() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -53,15 +53,15 @@ public class booking extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        bookingoutdate = new org.jdesktop.swingx.JXDatePicker();
         bookingindate = new org.jdesktop.swingx.JXDatePicker();
+        bookingoutdate = new org.jdesktop.swingx.JXDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Booking");
+        jLabel1.setText("Entry");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(120, 10, 120, 40);
 
@@ -216,10 +216,10 @@ public class booking extends javax.swing.JFrame {
         jLabel14.setText("Payment Status:");
         jPanel1.add(jLabel14);
         jLabel14.setBounds(500, 50, 110, 20);
-        jPanel1.add(bookingoutdate);
-        bookingoutdate.setBounds(560, 260, 170, 30);
         jPanel1.add(bookingindate);
-        bookingindate.setBounds(560, 210, 170, 30);
+        bookingindate.setBounds(560, 210, 180, 30);
+        jPanel1.add(bookingoutdate);
+        bookingoutdate.setBounds(560, 260, 180, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -295,20 +295,21 @@ public class booking extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(instant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(instant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(instant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(booking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(instant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new booking().setVisible(true);
+                new instant().setVisible(true);
             }
         });
     }
