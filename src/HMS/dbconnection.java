@@ -18,6 +18,7 @@ public class dbconnection {
         try {
             con = DriverManager.getConnection("jdbc:mysql://localhost/hmsdb","root","");
             System.out.println("MySQL Connection established");
+          
             
         } catch (SQLException ex) {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
@@ -36,15 +37,39 @@ public class dbconnection {
             
             System.out.println("Resultset is ready!");
             
+            
         } catch (SQLException ex) {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Connection Failed!");
         }
-        
+      
         return rs;
         
     }
     
+    public static void getqueryupdate(String sql){
+        try {
+            getConnection();
+            
+            Statement ps = con.createStatement();        
+            ps.executeUpdate(sql);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    private static String res;
+    public static String getsingledata(String sql){
+        try {
+            getConnection();
+            Statement ps = con.createStatement();
+            
+            res = String.valueOf(ps.executeQuery(sql));
+        } catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return res;
+    }
     
 //    public static void main(String[] args) throws SQLException {
 //        getConnection();

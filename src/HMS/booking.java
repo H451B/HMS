@@ -5,6 +5,15 @@
  */
 package HMS;
 
+import static java.lang.Integer.parseInt;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author hp
@@ -34,7 +43,6 @@ public class booking extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        bookingroomcount = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         bookingfacility = new javax.swing.JComboBox();
         bookingname = new javax.swing.JTextField();
@@ -46,15 +54,18 @@ public class booking extends javax.swing.JFrame {
         bookingaddress = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         bookingphone = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
+        bookingamount = new javax.swing.JLabel();
         bookingnid = new javax.swing.JTextField();
         bookingpaymentbtn = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        bookingpaymentstatus = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         bookingoutdate = new org.jdesktop.swingx.JXDatePicker();
         bookingindate = new org.jdesktop.swingx.JXDatePicker();
+        bookingroomcount = new javax.swing.JTextField();
+        bookingpayacno = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,19 +96,13 @@ public class booking extends javax.swing.JFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(450, 210, 80, 30);
 
-        bookingroomcount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bookingroomcountActionPerformed(evt);
-            }
-        });
-        jPanel1.add(bookingroomcount);
-        bookingroomcount.setBounds(560, 160, 180, 30);
-
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Extra Facilities");
         jPanel1.add(jLabel7);
         jLabel7.setBounds(450, 310, 100, 30);
 
+        bookingfacility.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1" }));
+        bookingfacility.setSelectedIndex(-1);
         bookingfacility.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bookingfacilityActionPerformed(evt);
@@ -114,13 +119,15 @@ public class booking extends javax.swing.JFrame {
         jPanel1.add(bookingname);
         bookingname.setBounds(150, 130, 160, 30);
 
+        bookingbedtype.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Delux", "Super Delux", "Condo", "Dual Bed", "Suit" }));
+        bookingbedtype.setSelectedIndex(-1);
         bookingbedtype.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bookingbedtypeActionPerformed(evt);
             }
         });
         jPanel1.add(bookingbedtype);
-        bookingbedtype.setBounds(560, 120, 180, 30);
+        bookingbedtype.setBounds(560, 110, 180, 30);
 
         hostbtn.setBackground(new java.awt.Color(255, 255, 255));
         hostbtn.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -146,7 +153,7 @@ public class booking extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Bed Type");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(450, 120, 80, 30);
+        jLabel5.setBounds(450, 110, 80, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Address");
@@ -174,10 +181,10 @@ public class booking extends javax.swing.JFrame {
         jPanel1.add(bookingphone);
         bookingphone.setBounds(150, 230, 160, 30);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel10.setText("-----------------");
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(630, 10, 100, 20);
+        bookingamount.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bookingamount.setText("-----------------");
+        jPanel1.add(bookingamount);
+        bookingamount.setBounds(630, 10, 100, 20);
 
         bookingnid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,19 +214,28 @@ public class booking extends javax.swing.JFrame {
         jPanel1.add(jLabel12);
         jLabel12.setBounds(500, 10, 90, 20);
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel13.setText("------------------");
-        jPanel1.add(jLabel13);
-        jLabel13.setBounds(630, 50, 100, 20);
+        bookingpaymentstatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bookingpaymentstatus.setText("------------------");
+        jPanel1.add(bookingpaymentstatus);
+        bookingpaymentstatus.setBounds(630, 50, 100, 20);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel14.setText("Payment Status:");
+        jLabel14.setText("A/C No.");
         jPanel1.add(jLabel14);
-        jLabel14.setBounds(500, 50, 110, 20);
+        jLabel14.setBounds(40, 400, 100, 30);
         jPanel1.add(bookingoutdate);
         bookingoutdate.setBounds(560, 260, 170, 30);
         jPanel1.add(bookingindate);
         bookingindate.setBounds(560, 210, 170, 30);
+        jPanel1.add(bookingroomcount);
+        bookingroomcount.setBounds(560, 160, 180, 30);
+        jPanel1.add(bookingpayacno);
+        bookingpayacno.setBounds(150, 400, 150, 30);
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setText("Payment Status:");
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(500, 50, 110, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -235,10 +251,6 @@ public class booking extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bookingroomcountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingroomcountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bookingroomcountActionPerformed
-
     private void bookingfacilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingfacilityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bookingfacilityActionPerformed
@@ -248,18 +260,80 @@ public class booking extends javax.swing.JFrame {
     }//GEN-LAST:event_bookingnameActionPerformed
 
     private void bookingbedtypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingbedtypeActionPerformed
-        // TODO add your handling code here:
+        String bedtype = bookingbedtype.getSelectedItem().toString();
+        System.out.println(bedtype);
     }//GEN-LAST:event_bookingbedtypeActionPerformed
 
     private void hostbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hostbtnActionPerformed
-        // TODO add your handling code here
+        
         service srvc=new service();
         srvc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_hostbtnActionPerformed
 
     private void bookingsubmitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingsubmitbtnActionPerformed
-        // TODO add your handling code here:
+        try {
+            String bn = bookingname.getText();
+            String badd = bookingaddress.getText();
+            String bp = bookingphone.getText();
+            String bnid = bookingnid.getText();
+            String cmd = "insert into cust_info (Name,Address,Phone,NID) values ('"+bn+"','"+badd+"','"+bp+"','"+bnid+"')";
+            dbconnection.getqueryupdate(cmd);
+            
+            String rcmd = "select ID from cust_info where Name = '"+bn+"' and NID = '"+bnid+"'";
+            ResultSet grs = dbconnection.getresult(rcmd);
+            String cust_id=null;
+            while(grs.next()){
+                cust_id = grs.getString("ID");
+            }
+            System.out.println(cust_id);
+            
+            String bedtype = bookingbedtype.getSelectedItem().toString();
+            System.out.println(bedtype);
+            
+            
+            if(bedtype.equalsIgnoreCase("delux"))bedtype="D";
+            else if(bedtype.equalsIgnoreCase("super delux"))bedtype="SD";
+            else if(bedtype.equalsIgnoreCase("condo"))bedtype="C";
+            else if(bedtype.equalsIgnoreCase("dual bed"))bedtype="DB";
+            else if(bedtype.equalsIgnoreCase("suit"))bedtype="ST";
+            System.out.println(bedtype);
+            int nroom = parseInt(bookingroomcount.getText());
+            Date in = bookingindate.getDate();
+            Date out = bookingoutdate.getDate();
+            DateFormat convrt = new SimpleDateFormat("yyyy-MM-dd");
+            
+            String indate = convrt.format(in);
+            String outdate = convrt.format(out);
+            String xf = bookingfacility.getSelectedItem().toString();
+            String pay = String.valueOf((3000*nroom));
+            String rcmd1 = "select ID from service where bed_type = '"+bedtype+"' and ext_fac = '"+xf+"'";
+            String serv_id=null; 
+             grs = dbconnection.getresult(rcmd1);
+             while(grs.next()){
+                 serv_id = grs.getString("ID");
+             }
+            System.out.println(serv_id);
+            
+            String cmdm = "insert into record (customer_id,in_date,service_id,room_no,payment) values('"+cust_id+"','"+indate+"','"+serv_id+"','"+nroom+"','"+pay+"')";
+            dbconnection.getqueryupdate(cmdm);
+            String cmdm2 = "select ID from record where in_date = '"+indate+"' and customer_id = '"+cust_id+"'";
+            String recd_id = null;
+            grs = dbconnection.getresult(cmdm2);
+            
+            while(grs.next()){
+                recd_id = grs.getString("ID");
+            }
+            System.out.println(recd_id);
+            
+            String stat = "booked";
+            
+            String pbcmd = "insert into prebook (rec_id,out_date,status) values ('"+recd_id+"','"+outdate+"','"+stat+"')";
+            dbconnection.getqueryupdate(pbcmd);
+        } catch (SQLException ex) {
+            Logger.getLogger(booking.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_bookingsubmitbtnActionPerformed
 
     private void bookingaddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingaddressActionPerformed
@@ -275,7 +349,7 @@ public class booking extends javax.swing.JFrame {
     }//GEN-LAST:event_bookingnidActionPerformed
 
     private void bookingpaymentbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingpaymentbtnActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_bookingpaymentbtnActionPerformed
 
     /**
@@ -315,23 +389,25 @@ public class booking extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bookingaddress;
+    private javax.swing.JLabel bookingamount;
     private javax.swing.JComboBox bookingbedtype;
     private javax.swing.JComboBox bookingfacility;
     private org.jdesktop.swingx.JXDatePicker bookingindate;
     private javax.swing.JTextField bookingname;
     private javax.swing.JTextField bookingnid;
     private org.jdesktop.swingx.JXDatePicker bookingoutdate;
+    private javax.swing.JTextField bookingpayacno;
     private javax.swing.JButton bookingpaymentbtn;
+    private javax.swing.JLabel bookingpaymentstatus;
     private javax.swing.JTextField bookingphone;
-    private javax.swing.JComboBox bookingroomcount;
+    private javax.swing.JTextField bookingroomcount;
     private javax.swing.JButton bookingsubmitbtn;
     private javax.swing.JButton hostbtn;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 public class dashboard extends javax.swing.JFrame {
     
@@ -18,10 +20,12 @@ public class dashboard extends javax.swing.JFrame {
         dateSet();
         //fcn();
         
-        String cmd = "select * from cust_info join record where cust_info.id = record.customer_id and record.in_date = '"+gdate()+"'";
+        String cmd = "select * from cust_info join record join checkout where cust_info.id = record.customer_id and checkout.rec_id = record.ID and  record.in_date = '"+gdate()+"'";
         //for(int j=0;j<colname.length;j++)System.out.println(colname[j]);
         
         dashrecordtable.setModel(dataret.getinforecord(fcn(),cmd)); //dashboard table update using dataret class
+        dashrecordtable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+       
     }
     
     public void dateSet(){
@@ -208,8 +212,9 @@ String szDate = oDateFormat.format(oDate);
 */
     private void refreshbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshbtnActionPerformed
         
-        String cmd = "select * from cust_info join record where cust_info.id = record.customer_id and record.in_date = '"+gdate()+"'";
+        String cmd = "select * from cust_info join record join checkout where cust_info.id = record.customer_id and checkout.rec_id = record.ID and  record.in_date = '"+gdate()+"'";
         dashrecordtable.setModel(dataret.getinforecord(fcn(), cmd));
+        
     }//GEN-LAST:event_refreshbtnActionPerformed
 
     /**

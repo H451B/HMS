@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.sql.*;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class checkout extends javax.swing.JFrame {
 
@@ -12,8 +14,9 @@ public class checkout extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         dateSet();
         
-        String cmd = "select * from cust_info join record where cust_info.id = record.customer_id and record.in_date = '"+dateGet()+"'";
-        outrecordtable.setModel(dataret.getinforecord(fcn(), cmd));
+        String cmd = "select * from cust_info join record join checkout where cust_info.id = record.customer_id and checkout.rec_id = record.ID and  record.in_date = '"+dateGet()+"'";
+        outrecordtable.setModel(dataret.getoutrecord(fcn(), cmd));
+        outrecordtable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         
     }
     
@@ -70,11 +73,11 @@ public class checkout extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Name", "Address", "NID", "Number", "Check_IN", "Check_OUT", "Service_No", "Room_No", "Payment"
+                "ID", "Name", "Address", "NID", "Number", "Check_IN", "Check_OUT", "Service_No", "Room_No", "Payment", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -167,7 +170,13 @@ public class checkout extends javax.swing.JFrame {
     }//GEN-LAST:event_tooperatorbtnActionPerformed
 
     private void outextendbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outextendbtnActionPerformed
-        // TODO add your handling code here:
+        int r = outrecordtable.getSelectedRow();
+        String id = outrecordtable.getModel().getValueAt(r, 0).toString();
+        String odate = outrecordtable.getModel().getValueAt(r, 6).toString();
+        String cmd = "update checkout set status = 'Extended' , out_date = '"+odate+"' where rec_id = '"+id+"'";        
+        dbconnection.getqueryupdate(cmd);        
+        String cmd2 = "select * from cust_info join record join checkout where cust_info.id = record.customer_id and checkout.rec_id = record.ID and  record.in_date = '"+dateGet()+"'";
+        outrecordtable.setModel(dataret.getoutrecord(fcn(), cmd2));
        
     }//GEN-LAST:event_outextendbtnActionPerformed
 
@@ -190,7 +199,14 @@ String szDate = oDateFormat.format(oDate);
     }//GEN-LAST:event_currentrecorddateActionPerformed
 
     private void checkoutbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutbtnActionPerformed
-        // TODO add your handling code here:
+        
+        int r = outrecordtable.getSelectedRow();
+        String id = outrecordtable.getModel().getValueAt(r, 0).toString();
+        String cmd = "update checkout set status = 'Check_out' where rec_id = '"+id+"'";        
+        dbconnection.getqueryupdate(cmd);        
+        String cmd2 = "select * from cust_info join record join checkout where cust_info.id = record.customer_id and checkout.rec_id = record.ID and  record.in_date = '"+dateGet()+"'";
+        outrecordtable.setModel(dataret.getoutrecord(fcn(), cmd2));
+        
     }//GEN-LAST:event_checkoutbtnActionPerformed
 
     private void outdatecheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outdatecheckActionPerformed
@@ -201,8 +217,8 @@ String szDate = oDateFormat.format(oDate);
     }//GEN-LAST:event_outdatecheckActionPerformed
 
     private void refreshbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshbtnActionPerformed
-        String cmd = "select * from cust_info join record where cust_info.id = record.customer_id and record.in_date = '"+dateGet()+"'";
-        outrecordtable.setModel(dataret.getinforecord(fcn(), cmd));
+        String cmd = "select * from cust_info join record join checkout where cust_info.id = record.customer_id and checkout.rec_id = record.ID and  record.in_date = '"+dateGet()+"'";
+        outrecordtable.setModel(dataret.getoutrecord(fcn(), cmd));
     }//GEN-LAST:event_refreshbtnActionPerformed
 
     /**

@@ -13,7 +13,7 @@ public class dataret extends dashboard {
     
     dataret(){}
     
-    //String[] data;
+    private static ResultSet sdata;
     
     //JTable tcn = new JTable(dashrecordtable);       
     
@@ -36,6 +36,7 @@ public class dataret extends dashboard {
                 String g = String.valueOf(grs.getInt("service_id"));
                 String h = grs.getString("room_no");
                 String p = String.valueOf(grs.getInt("payment"));
+              
                 
                 String[] data = {a,b,c,d,e,f,g,h,p};
                 
@@ -49,6 +50,75 @@ public class dataret extends dashboard {
         }
         return mr;
     }
+    
+    public static DefaultTableModel getoutrecord(String[] cn,String sql){
+        
+        try {
+//            String sql = "select * from cust_info join record where cust_info.id = record.customer_id";
+            
+            ResultSet grs = dbconnection.getresult(sql);
+            mr = new DefaultTableModel(cn,0);
+            while(grs.next()){
+                String id = String.valueOf(grs.getInt("record.ID"));
+                String a = grs.getString("Name");
+                String b = grs.getString("Address");
+                String d = grs.getString("Phone");
+                String c = grs.getString("NID");
+                String e = grs.getDate("in_date").toString();
+                String f = grs.getDate("out_date").toString();
+                String g = String.valueOf(grs.getInt("service_id"));
+                String h = grs.getString("room_no");
+                String p = String.valueOf(grs.getInt("payment"));
+                String s = grs.getString("status");
+              
+                
+                String[] data = {id,a,b,c,d,e,f,g,h,p,s};
+                
+                mr.addRow(data);
+                //        System.out.println(a + b + c + d + e + f + g + h + p);
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(dataret.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mr;
+    }
+    
+    public static DefaultTableModel getbookrecord(String[] cn,String sql){
+        
+        try {
+//            String sql = "select * from cust_info join record where cust_info.id = record.customer_id";
+            
+            ResultSet grs = dbconnection.getresult(sql);
+            mr = new DefaultTableModel(cn,0);
+            while(grs.next()){
+                String id = String.valueOf(grs.getInt("record.ID"));
+                String a = grs.getString("Name");
+                String b = grs.getString("Address");
+                String d = grs.getString("Phone");
+                String c = grs.getString("NID");
+                String e = grs.getDate("in_date").toString();
+                String f = grs.getDate("out_date").toString();
+                String g = String.valueOf(grs.getInt("service_id"));
+                String h = grs.getString("room_no");
+                String p = String.valueOf(grs.getInt("payment"));
+                String s = grs.getString("status");
+              
+                
+                String[] data = {id,a,b,c,d,e,f,g,h,p,s};
+                
+                mr.addRow(data);
+                //        System.out.println(a + b + c + d + e + f + g + h + p);
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(dataret.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mr;
+    }
+    
     
 //    public static void main(String[] args) throws SQLException {
 //        

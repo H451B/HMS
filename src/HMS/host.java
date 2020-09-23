@@ -159,10 +159,9 @@ public class host extends javax.swing.JFrame {
             if (uname.equals("admin") && upass.equals("admin")) {
                 new admin().setVisible(true);
                 
-            } else if (uname.equals("manager") && upass.equals("manager")) {
-                new manager().setVisible(true);
+            } 
                 
-            } else if (uname.equals("operator") && upass.equals("operator")) {
+            else if (uname.equals("operator") && upass.equals("operator")) {
                 new operator().setVisible(true);
                 
             }
