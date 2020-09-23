@@ -1,5 +1,6 @@
 package HMS;
 
+import java.sql.*;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
