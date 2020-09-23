@@ -252,9 +252,8 @@ public class instant extends javax.swing.JFrame {
     }//GEN-LAST:event_bookingbedtypeActionPerformed
 
     private void hostbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hostbtnActionPerformed
-        // TODO add your handling code here
-        service srvc=new service();
-        srvc.setVisible(true);
+
+        new dashboard().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_hostbtnActionPerformed
 
