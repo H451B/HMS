@@ -56,7 +56,9 @@ public class home extends javax.swing.JFrame {
 
         panelnull.setLayout(null);
 
+        servicebtn.setBackground(new java.awt.Color(51, 0, 153));
         servicebtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        servicebtn.setForeground(new java.awt.Color(255, 255, 255));
         servicebtn.setText("Services");
         servicebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +68,9 @@ public class home extends javax.swing.JFrame {
         panelnull.add(servicebtn);
         servicebtn.setBounds(600, 250, 220, 60);
 
+        hostbtn.setBackground(new java.awt.Color(51, 0, 153));
         hostbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        hostbtn.setForeground(new java.awt.Color(255, 255, 255));
         hostbtn.setText("Host");
         hostbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +80,9 @@ public class home extends javax.swing.JFrame {
         panelnull.add(hostbtn);
         hostbtn.setBounds(600, 170, 220, 60);
 
+        helpbtn.setBackground(new java.awt.Color(51, 0, 153));
         helpbtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        helpbtn.setForeground(new java.awt.Color(255, 255, 255));
         helpbtn.setText("Help");
         helpbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
