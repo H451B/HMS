@@ -242,10 +242,7 @@
         <Property name="text" type="java.lang.String" value="Check Out"/>
       </Properties>
     </Component>
-    <Component class="org.jdesktop.swingx.JXDatePicker" name="outdatecheck">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="outdatecheckActionPerformed"/>
-      </Events>
+    <Component class="org.netbeans.modules.form.InvalidComponent" name="outdatecheck">
     </Component>
   </SubComponents>
 </Form>
