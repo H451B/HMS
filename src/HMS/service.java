@@ -40,14 +40,16 @@ public class service extends javax.swing.JFrame {
         serviceLabel = new javax.swing.JLabel();
         ravLavel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        tohomebtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
+        fasbtn.setBackground(new java.awt.Color(51, 0, 153));
         fasbtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fasbtn.setForeground(new java.awt.Color(255, 255, 255));
         fasbtn.setText("Fascilities");
         fasbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,7 +59,9 @@ public class service extends javax.swing.JFrame {
         jPanel1.add(fasbtn);
         fasbtn.setBounds(90, 240, 200, 50);
 
+        bookbtn.setBackground(new java.awt.Color(51, 0, 153));
         bookbtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bookbtn.setForeground(new java.awt.Color(255, 255, 255));
         bookbtn.setText("Booking");
         bookbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +71,9 @@ public class service extends javax.swing.JFrame {
         jPanel1.add(bookbtn);
         bookbtn.setBounds(90, 310, 200, 50);
 
+        roombtn.setBackground(new java.awt.Color(51, 0, 153));
         roombtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        roombtn.setForeground(new java.awt.Color(255, 255, 255));
         roombtn.setText("Rooms");
         roombtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,15 +83,17 @@ public class service extends javax.swing.JFrame {
         jPanel1.add(roombtn);
         roombtn.setBounds(90, 160, 200, 50);
 
-        serviceLabel.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
+        serviceLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        serviceLabel.setForeground(new java.awt.Color(51, 0, 153));
         serviceLabel.setText("SERVICES");
         jPanel1.add(serviceLabel);
-        serviceLabel.setBounds(430, 0, 120, 60);
+        serviceLabel.setBounds(430, 0, 140, 40);
 
         ravLavel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ravLavel.setForeground(new java.awt.Color(51, 0, 153));
         ravLavel.setText("Room Availibility Info");
         jPanel1.add(ravLavel);
-        ravLavel.setBounds(630, 120, 160, 40);
+        ravLavel.setBounds(630, 100, 160, 40);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -95,21 +103,22 @@ public class service extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
+            .addGap(0, 350, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(460, 170, 440, 340);
+        jPanel2.setBounds(460, 160, 440, 350);
 
-        tohomebtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tohomebtn.setText("<");
-        tohomebtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tohomebtnActionPerformed(evt);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 153));
+        jLabel1.setText("<");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
             }
         });
-        jPanel1.add(tohomebtn);
-        tohomebtn.setBounds(10, 10, 80, 30);
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(30, 0, 20, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,16 +136,16 @@ public class service extends javax.swing.JFrame {
 
     private void roombtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roombtnActionPerformed
         // TODO add your handling code here:
-        room rm=new room();
-        rm.setVisible(true);
-        this.setVisible(false);
+//        room rm=new room();
+//        rm.setVisible(true);
+//        this.setVisible(false);
     }//GEN-LAST:event_roombtnActionPerformed
 
     private void fasbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fasbtnActionPerformed
         // TODO add your handling code here:
-        facilities fsclts=new facilities();
-        fsclts.setVisible(true);
-        this.setVisible(false);
+//        facilities fsclts=new facilities();
+//        fsclts.setVisible(true);
+//        this.setVisible(false);
     }//GEN-LAST:event_fasbtnActionPerformed
 
     private void bookbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookbtnActionPerformed
@@ -146,10 +155,11 @@ public class service extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_bookbtnActionPerformed
 
-    private void tohomebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tohomebtnActionPerformed
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
         new home().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_tohomebtnActionPerformed
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -189,11 +199,11 @@ public class service extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bookbtn;
     private javax.swing.JButton fasbtn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel ravLavel;
     private javax.swing.JButton roombtn;
     private javax.swing.JLabel serviceLabel;
-    private javax.swing.JButton tohomebtn;
     // End of variables declaration//GEN-END:variables
 }
