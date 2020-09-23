@@ -93,13 +93,13 @@ public class service extends javax.swing.JFrame {
         ravLavel.setForeground(new java.awt.Color(51, 0, 153));
         ravLavel.setText("Room Availibility Info");
         jPanel1.add(ravLavel);
-        ravLavel.setBounds(630, 100, 160, 40);
+        ravLavel.setBounds(570, 110, 160, 40);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGap(0, 570, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +107,7 @@ public class service extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(460, 160, 440, 350);
+        jPanel2.setBounds(340, 160, 570, 350);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 0, 153));

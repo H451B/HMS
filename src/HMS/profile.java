@@ -59,7 +59,6 @@ public class profile extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         tooperatorbtn = new javax.swing.JButton();
-        admin1 = new javax.swing.JButton();
         profilelayer = new javax.swing.JLayeredPane();
         operatordetailspane = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -71,7 +70,7 @@ public class profile extends javax.swing.JFrame {
         opnoticetext = new javax.swing.JTextArea();
         makereqpane = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        makereqtobox = new javax.swing.JComboBox<>();
+        makereqtobox = new javax.swing.JComboBox<String>();
         jLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         reqsubjectbox = new javax.swing.JTextField();
@@ -161,16 +160,13 @@ public class profile extends javax.swing.JFrame {
                 .addGap(32, 32, 32))
         );
 
-        tooperatorbtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tooperatorbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tooperatorbtn.setText("<");
         tooperatorbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tooperatorbtnActionPerformed(evt);
             }
         });
-
-        admin1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        admin1.setText("Admin");
 
         profilelayer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         profilelayer.setLayout(new java.awt.FlowLayout());
@@ -242,7 +238,7 @@ public class profile extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Make Request");
 
-        makereqtobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Manager", "Accounts" }));
+        makereqtobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Admin", "Manager", "Accounts" }));
         makereqtobox.setSelectedItem(null);
 
         jLabel1.setText("To");
@@ -339,24 +335,18 @@ public class profile extends javax.swing.JFrame {
                             .addComponent(profilelayer, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(tooperatorbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(283, 283, 283)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(331, 331, 331)
-                        .addComponent(admin1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tooperatorbtn)
+                        .addGap(352, 352, 352)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tooperatorbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(24, 24, 24)
-                .addComponent(admin1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel4)
+                    .addComponent(tooperatorbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(94, 94, 94)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -366,7 +356,7 @@ public class profile extends javax.swing.JFrame {
                             .addComponent(opdetailsbtn)
                             .addComponent(opnoticebtn)
                             .addComponent(opmakereqbtn))
-                        .addGap(0, 22, Short.MAX_VALUE)))
+                        .addGap(0, 25, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -463,7 +453,6 @@ public class profile extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton admin1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
