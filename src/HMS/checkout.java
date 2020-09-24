@@ -56,7 +56,7 @@ public class checkout extends javax.swing.JFrame {
         outextendbtn = new javax.swing.JButton();
         refreshbtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        outdatecheck = new org.netbeans.modules.form.InvalidComponent();
+        outdatecheck = new org.jdesktop.swingx.JXDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,6 +121,12 @@ public class checkout extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 0, 153));
         jLabel3.setText("Check Out");
+
+        outdatecheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outdatecheckActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -265,7 +271,7 @@ String szDate = oDateFormat.format(oDate);
     private javax.swing.JButton checkoutbtn;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private org.netbeans.modules.form.InvalidComponent outdatecheck;
+    private org.jdesktop.swingx.JXDatePicker outdatecheck;
     private javax.swing.JButton outextendbtn;
     private javax.swing.JTable outrecordtable;
     private javax.swing.JButton refreshbtn;
