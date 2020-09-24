@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -186,6 +187,7 @@ public class checkout extends javax.swing.JFrame {
         dbconnection.getqueryupdate(cmd);        
         String cmd2 = "select * from cust_info join record join checkout where cust_info.id = record.customer_id and checkout.rec_id = record.ID and  record.in_date = '"+dateGet()+"'";
         outrecordtable.setModel(dataret.getoutrecord(fcn(), cmd2));
+        JOptionPane.showMessageDialog(this, "Extend Success!");
        
     }//GEN-LAST:event_outextendbtnActionPerformed
 
@@ -215,7 +217,7 @@ String szDate = oDateFormat.format(oDate);
         dbconnection.getqueryupdate(cmd);        
         String cmd2 = "select * from cust_info join record join checkout where cust_info.id = record.customer_id and checkout.rec_id = record.ID and  record.in_date = '"+dateGet()+"'";
         outrecordtable.setModel(dataret.getoutrecord(fcn(), cmd2));
-        
+        JOptionPane.showMessageDialog(this, "Check out complete! :) ");
     }//GEN-LAST:event_checkoutbtnActionPerformed
 
     private void outdatecheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outdatecheckActionPerformed

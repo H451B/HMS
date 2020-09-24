@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -330,8 +331,10 @@ public class booking extends javax.swing.JFrame {
             
             String pbcmd = "insert into prebook (rec_id,out_date,status) values ('"+recd_id+"','"+outdate+"','"+stat+"')";
             dbconnection.getqueryupdate(pbcmd);
+            JOptionPane.showMessageDialog(this, "Process Complete!");
         } catch (SQLException ex) {
             Logger.getLogger(booking.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Failed :( ");
         }
         
     }//GEN-LAST:event_bookingsubmitbtnActionPerformed
