@@ -52,7 +52,7 @@ public class prebook extends javax.swing.JFrame {
         prebookcheckbtn = new javax.swing.JButton();
         checkintodashboardbtn = new javax.swing.JButton();
         prebookdate = new org.jdesktop.swingx.JXDatePicker();
-        jLabel1 = new javax.swing.JLabel();
+        tohomebtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -61,19 +61,7 @@ public class prebook extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(51, 0, 204));
         jLabel3.setText("Booking Check");
 
-<<<<<<< HEAD
-        todashboardbtn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        todashboardbtn.setText("<");
-        todashboardbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                todashboardbtnActionPerformed(evt);
-            }
-        });
-
         bookchecktable.setModel(new javax.swing.table.DefaultTableModel(
-=======
-        dashrecordtable.setModel(new javax.swing.table.DefaultTableModel(
->>>>>>> 000b7fd13596c632dac794b36f30c065daa3e00f
             new Object [][] {
 
             },
@@ -111,15 +99,7 @@ public class prebook extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(51, 0, 204));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 32)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 0, 153));
-        jLabel1.setText("<");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
+        tohomebtn.setText("<");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,8 +109,8 @@ public class prebook extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(306, 306, 306)
+                        .addComponent(tohomebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(296, 296, 296)
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -145,9 +125,9 @@ public class prebook extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addComponent(tohomebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -169,12 +149,6 @@ public class prebook extends javax.swing.JFrame {
         new dashboard().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_checkintodashboardbtnActionPerformed
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
-        new dashboard().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel1MouseClicked
 
     private void prebookcheckbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prebookcheckbtnActionPerformed
         String cmd = "select * from cust_info join record join prebook where cust_info.ID = record.customer_id and prebook.rec_id = record.ID and record.in_date = '"+Dateset()+"' ";
@@ -217,14 +191,10 @@ public class prebook extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable bookchecktable;
     private javax.swing.JButton checkintodashboardbtn;
-<<<<<<< HEAD
-=======
-    private javax.swing.JTable dashrecordtable;
-    private javax.swing.JLabel jLabel1;
->>>>>>> 000b7fd13596c632dac794b36f30c065daa3e00f
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton prebookcheckbtn;
     private org.jdesktop.swingx.JXDatePicker prebookdate;
+    private javax.swing.JButton tohomebtn;
     // End of variables declaration//GEN-END:variables
 }
