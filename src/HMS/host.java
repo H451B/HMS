@@ -144,7 +144,7 @@ public class host extends javax.swing.JFrame {
         }
         
         System.out.println("User Mail: " + uname+"\nUser Pass: "+upass);
-        String domain = null;
+        String domain = "";
         
             
             if(uname.contains("@")){
@@ -161,7 +161,7 @@ public class host extends javax.swing.JFrame {
                 
             } 
                 
-            else if (uname.equals("operator") && upass.equals("operator")) {
+            else if (domain.equals("operator") && upass.equals("operator")) {
                 new operator().setVisible(true);
                 
             }

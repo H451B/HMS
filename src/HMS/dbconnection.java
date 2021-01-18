@@ -16,7 +16,7 @@ public class dbconnection {
     
     public static Connection getConnection(){
         try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost/hmsdb","root","");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/hmsdb_erfan","root","");
             System.out.println("MySQL Connection established");
           
             
@@ -24,7 +24,8 @@ public class dbconnection {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return con;            
+        return con;
+        
     }
     
     
